@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Paleta Jabones D.X. — extraída del mood board */
+  --color-background:     var(--background);
+  --color-foreground:     var(--foreground);
+  --color-card:           var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary:        var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:      var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:          var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent:         var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border:         var(--border);
+  --color-ring:           var(--ring);
+
+  /* Marca */
+  --color-teal:           var(--teal);
+  --color-terracotta:     var(--terracotta);
+  --color-sand:           var(--sand);
+  --color-olive:          var(--olive);
+  --color-cream:          var(--cream);
+
+  /* Tipografías */
+  --font-serif:  'Playfair Display', 'Georgia', serif;
+  --font-sans:   'Jost', 'system-ui', sans-serif;
+
+  --radius-sm:  0.25rem;
+  --radius-md:  0.5rem;
+  --radius-lg:  1rem;
+  --radius-xl:  2rem;
+  --radius-full: 9999px;
+}
+
+:root {
+  color-scheme: light;
+
+  /* Base tokens */
+  --background:           #F5EFE0;   /* Sand Beige suave */
+  --foreground:           #2A2318;   /* Marrón oscuro cálido */
+  --card:                 #FAF6EE;
+  --card-foreground:      #2A2318;
+  --primary:              #B85C3A;   /* Terracotta Clay — botones CTA */
+  --primary-foreground:   #FAF6EE;
+  --secondary:            #2E4A44;   /* Deep Teal */
+  --secondary-foreground: #FAF6EE;
+  --muted:                #EDE5D0;
+  --muted-foreground:     #6B5C47;
+  --accent:               #4A6135;   /* Olive Green */
+  --accent-foreground:    #FAF6EE;
+  --border:               #D9C9A8;
+  --ring:                 #B85C3A;
+
+  /* Colores de marca directos */
+  --teal:       #2E4A44;
+  --terracotta: #B85C3A;
+  --sand:       #F0E0C0;
+  --olive:      #4A6135;
+  --cream:      #FAF6EE;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+
+  /* Scrollbar sutil */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--sand); }
+  ::-webkit-scrollbar-thumb { background: var(--terracotta); border-radius: 3px; }
+}
+
+/* Utilidades de tipografía de marca */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-style: italic;
+  }
+  .font-display-bold {
+    font-family: var(--font-serif);
+    font-weight: 700;
+  }
+  .font-body {
+    font-family: var(--font-sans);
+    font-weight: 400;
+  }
+  .font-body-medium {
+    font-family: var(--font-sans);
+    font-weight: 500;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .divider-botanical {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+  /* Línea decorativa estilo apothecary */
+  .ornament-line::before,
+  .ornament-line::after {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+    vertical-align: middle;
+    margin: 0 12px;
+  }
+}
